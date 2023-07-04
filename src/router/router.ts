@@ -16,24 +16,24 @@ const constantRoutes = [
       {
         path: 'about',
         name: 'about',
-        component: import('@/pages/aboutme.vue')
+        component: () => import('@/pages/aboutme.vue')
       },
       {
         path: 'posts',
         name: 'posts',
-        component: import('@/pages/posts.vue')
+        component: () => import('@/pages/posts.vue')
       },
       {
         path: 'cv',
         name: 'cv',
-        component: import('@/pages/cv.vue')
+        component: () => import('@/pages/cv.vue')
       }
     ]
   },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory("/"),
+  history: createWebHashHistory(),
   routes: constantRoutes
 });
 
