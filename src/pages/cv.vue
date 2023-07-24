@@ -2,11 +2,12 @@
   <div class="article">
     <h1>Curriculum vitae</h1>
     <p>Download CY's CV <a
-        href="https://docs.google.com/document/d/1wqw6v94djk_PgOrahF-f5AgV7u09yQ7K-1M-BUZz4Ts/edit?usp=sharing"
+        href="https://docs.google.com/document/d/1MuT9MK5Ro1sPB70sd1xeIcPnelsUIgHSmq0aW4LuNPM/edit?usp=sharing"
         target="_blank">here</a>.</p>
     <iframe
-      src="https://docs.google.com/document/d/e/2PACX-1vQiOWTpNHxRfcOYVcFGuwJYpFdMvI8gQc5UF6FdANTFdvnGGAq3RsfZdJsoCkSS1DihZX7Fci7VIYvD/pub?embedded=true"
-      style="width: 100%; height: 100vh;"></iframe>
+      src="https://docs.google.com/document/d/e/2PACX-1vSqrITOotFr1XyrbXqzNlpdCDVm6Ny8GMPuO9e6pOI6FPMYag-cBL3h3S2X8R9rVh9k7vO2jZBKFO30/pub?embedded=true"
+      style="width: 100%; height: 100vh;">
+    </iframe>
   </div>
 </template>
 
