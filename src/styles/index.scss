@@ -88,9 +88,8 @@ code {
     }
   }
 
-  @include mobile {
+  @include tablet-down {
     width: 100%;
   }
-
 }
 

@@ -1,32 +1,33 @@
 <template>
   <div class="header-row">
-    <el-menu mode="horizontal" class="nav-left">
-      <el-menu-item index="/about" @click="goto('/about')" class="logo-item">
-        <img src="@/assets/cy_transparent.png" style="height: var(--ep-menu-item-height);" />
+    <el-menu mode="horizontal" class="nav-left" popper-class="nav-left-dropdown">
+      <el-menu-item index="/about" @click="goto('/about')">
+        <img src="@/assets/cy_transparent.png" style="height: 100%" />
       </el-menu-item>
 
       <el-menu-item :index="item.path" v-for="item in getRoutes()" :key="item.path" @click="goto(item.path)">
-        <span class="route-name">{{ routeI18n(item.name) }} </span>
+        <span class="route-name w-full justify-center flex">{{ routeI18n(item.name) }} </span>
       </el-menu-item>
     </el-menu>
 
-    <el-menu mode="horizontal" class="nav-right">
+    <el-menu mode="horizontal" class="nav-right" popper-class="nav-right-dropdown">
       <el-menu-item @click="toggleDark()">
         <button class="border-none w-full bg-transparent cursor-pointer" style="height: var(--ep-menu-item-height)">
           <i inline-flex i="dark:ep-moon ep-sunny"></i>
         </button>
       </el-menu-item>
-      <el-dropdown size="large">
-        <el-menu-item>
-          <i inline-flex i="lucide-languages"></i>
-        </el-menu-item>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item @click="setLocale('en')">English</el-dropdown-item>
-            <el-dropdown-item @click="setLocale('zh-cn')">中文</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+
+      <el-menu-item>
+        <el-dropdown class="w-full justify-center">
+          <i i="lucide-languages"></i>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="setLocale('en')">English</el-dropdown-item>
+              <el-dropdown-item @click="setLocale('zh-cn')">中文</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -77,7 +78,7 @@ function setLocale(value: string) {
 <style lang="scss" scoped>
 .header-row {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 85% 20%;
   padding: 0 var(--layout-px);
 
   border-bottom: 1px solid var(--ep-menu-border-color);
@@ -104,6 +105,16 @@ function setLocale(value: string) {
     :deep(.ep-menu-item) {
       padding: 0 10px;
     }
+  }
+
+}
+</style>
+
+<style lang="scss">
+.nav-left-dropdown,
+.nav-right-dropdown {
+  .ep-menu--popup {
+    min-width: clamp(50px, 20vw, 200px);
   }
 }
 </style>
