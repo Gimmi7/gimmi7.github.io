@@ -2,7 +2,7 @@
   <div class="page-footer">
     <footer>
       <div>
-        © 2023 CY. Powered by Vite & Vue3 & Typescript & Element-Plus.
+        © {{ new Date().getFullYear() }} CY. Powered by Vite & Vue3 & Typescript & Element-Plus.
       </div>
     </footer>
   </div>
