@@ -1,14 +1,53 @@
 // import dark theme
 @use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
 
+/* ---------- Responsive design tokens ----------
+   Components consume these tokens; breakpoints below adjust them centrally.
+   This avoids case-by-case media queries in each component.
+------------------------------------------------ */
 :root {
+  // theme
   --footer-bg: #f5f7fa;
   --color-article: #494e52;
+
+  // layout
+  --layout-px: 10vw;           // horizontal page padding
+  --layout-pt: 2rem;           // page top padding
+  --layout-gap: 5rem;          // sidebar <-> main gap
+  --sidebar-width: 14rem;      // sidebar column width on desktop
+
+  // sidebar / avatar
+  --avatar-size: clamp(96px, 11vw, 180px);
+
+  // typography
+  --font-size-article: 1.1rem;
+  --nav-font-size: 18px;
+  --footer-font-size: 0.6875rem;
 }
 
 html.dark {
   --footer-bg: #1D1D1D;
   --color-article: #9ba1a6;
+}
+
+@include tablet-only {
+  :root {
+    --layout-px: 5vw;
+    --layout-gap: 2.5rem;
+    --sidebar-width: 12rem;
+    --nav-font-size: 16px;
+  }
+}
+
+@include mobile {
+  :root {
+    --layout-px: 1.25rem;
+    --layout-pt: 1rem;
+    --layout-gap: 1.5rem;
+    --sidebar-width: 100%;
+    --font-size-article: 1rem;
+    --nav-font-size: 14px;
+  }
 }
 
 
@@ -30,3 +69,28 @@ code {
   background-color: var(--ep-color-primary-light-9);
   color: var(--ep-color-primary);
 }
+
+/* Reusable article container — used by all page routes */
+.article {
+  width: 75%;
+  color: var(--color-article);
+  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+
+  p {
+    display: block;
+    margin: 0 0 1.3em;
+    font-size: 1.1rem;
+    line-height: 1.5;
+
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+
+}
+

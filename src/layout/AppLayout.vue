@@ -2,12 +2,12 @@
   <div class="app-wrapper">
     <base-header></base-header>
     <div class="page-body">
-      <div class="sidebar">
+      <aside class="sidebar">
         <side-bar></side-bar>
-      </div>
-      <div class="page-main">
+      </aside>
+      <main class="page-main">
         <page-main></page-main>
-      </div>
+      </main>
     </div>
     <base-footer></base-footer>
   </div>
@@ -25,16 +25,31 @@ import BaseFooter from "./BaseFooter.vue";
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
 
-  .page-body {
-    flex-grow: 1;
-    display: flex;
-    padding-left: 10vw;
-    padding-top: 2rem;
-    gap: 5rem;
+.page-body {
+  flex-grow: 1;
+  display: flex;
+  gap: var(--layout-gap);
+  padding: var(--layout-pt) var(--layout-px) 2rem;
+  box-sizing: border-box;
 
-    .page-main {
-      width: 100%;
+  .sidebar {
+    flex: 0 0 var(--sidebar-width);
+    max-width: var(--sidebar-width);
+  }
+
+  .page-main {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  @include tablet-down {
+    flex-direction: column;
+
+    .sidebar {
+      flex-basis: auto;
+      max-width: 100%;
     }
   }
 }

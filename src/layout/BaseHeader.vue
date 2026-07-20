@@ -1,21 +1,16 @@
 <template>
-  <div class="grid-row">
-    <el-menu mode="horizontal">
-      <div style="flex-basis: 10vw;"></div>
-
-      <el-menu-item index="/about" @click="goto('/about')">
+  <div class="header-row">
+    <el-menu mode="horizontal" class="nav-left">
+      <el-menu-item index="/about" @click="goto('/about')" class="logo-item">
         <img src="@/assets/cy_transparent.png" style="height: var(--ep-menu-item-height);" />
       </el-menu-item>
 
-      <div style="flex-basis: 3vw;"></div>
-
-      <el-menu-item :index="item.path" v-for="item in getRoutes()" @click="goto(item.path)">
+      <el-menu-item :index="item.path" v-for="item in getRoutes()" :key="item.path" @click="goto(item.path)">
         <span class="route-name">{{ routeI18n(item.name) }} </span>
       </el-menu-item>
-
     </el-menu>
 
-    <el-menu mode="horizontal">
+    <el-menu mode="horizontal" class="nav-right">
       <el-menu-item @click="toggleDark()">
         <button class="border-none w-full bg-transparent cursor-pointer" style="height: var(--ep-menu-item-height)">
           <i inline-flex i="dark:ep-moon ep-sunny"></i>
@@ -80,19 +75,39 @@ function setLocale(value: string) {
 
 
 <style lang="scss" scoped>
-.grid-row {
+.header-row {
   display: grid;
   grid-template-columns: 80% 20%;
+  padding: 0 var(--layout-px);
+
+  border-bottom: 1px solid var(--ep-menu-border-color);
+
+  .nav-left,
+  .nav-right {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    border-bottom: none; // container已画线，避免换行时双重边线
+  }
 
   .route-name {
     color: #7a8288;
-    font-size: 18px;
+    font-size: var(--nav-font-size);
   }
 
-  // :deep(a .ep-menu-item) {
-  //   color: #7a8288;
-  //   font-size: 18px;
-  //   text-decoration: none;
-  // }
+  @include mobile {
+    padding: 0 var(--layout-px);
+    justify-content: space-between;
+
+    .logo-item :deep(img) {
+      height: calc(var(--ep-menu-item-height) * 0.75) !important;
+    }
+
+    :deep(.ep-menu-item) {
+      padding: 0 10px;
+      height: 48px;
+      line-height: 48px;
+    }
+  }
 }
 </style>
