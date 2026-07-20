@@ -96,17 +96,13 @@ function setLocale(value: string) {
   }
 
   @include mobile {
-    padding: 0 var(--layout-px);
-    justify-content: space-between;
 
-    .logo-item :deep(img) {
-      height: calc(var(--ep-menu-item-height) * 0.75) !important;
+    :deep(.ep-menu--horizontal) {
+      height: 48px;
     }
 
     :deep(.ep-menu-item) {
       padding: 0 10px;
-      height: 48px;
-      line-height: 48px;
     }
   }
 }
