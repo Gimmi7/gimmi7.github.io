@@ -25,6 +25,7 @@ export default defineConfig({
   },
   css: {
     preprocessorOptions: {
+      api: 'modern',
       scss: {
         // element-plus custom namespace   [https://element-plus.org/en-US/guide/namespace.html#set-scss-css-vars]
         additionalData: `@use "@/styles/element/index.scss" as *; @use "@/styles/responsive.scss" as *;`
